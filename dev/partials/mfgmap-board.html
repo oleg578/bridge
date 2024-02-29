@@ -1,0 +1,42 @@
+<h4 class="orange-color">MfgMap Manage</h4>
+<md-whiteframe layout="column" layout-align="start start" layout-margin layout-padding class="attr-panel" flex-gt-sm="50" flex-xs="100" flex-sm="80">
+    <md-button class="md-raised" ng-click="AddMfgMap()" ng-hide="HideAddMfgMap" id="addcenterbtn">Add MfgMap</md-button>
+    <div id="addhook" class="form-group center-control-panel" layout="row" layout-align="start center" ng-show="NewMfgMapShow">
+        <label for="title-control">oldMfg:</label>
+        <input type="text" class="form-control item-input-control" id="title-control" ng-model="newmfgmap.oldmfg" maxlength="32">
+        <span>{{newmfgmap.oldmfg.toString().length}}/32</span>
+        <label for="title-control">newMfg:</label>
+        <input type="text" class="form-control item-input-control" id="title-control" ng-model="newmfgmap.newmfg" maxlength="32">
+        <span>{{newmfgmap.newmfg.toString().length}}/32</span>
+        <div layout="row" latout-align="start center">
+            <md-button class="md-raised" ng-click="createMfgMap(newmfgmap)" ng-disabled="newmfgmap.oldmfg.toString().length ===0">Save</md-button>
+            <md-button class="md-raised" ng-click="Discard()">Discard</md-button>
+        </div>
+    </div>
+</md-whiteframe>
+<table class="table table-striped table-bordered table-condensed" layout-padding flex-gt-sm="50" flex-xs="100" flex-sm="80" ng-if="mfgmaps.length">
+    <thead>
+    <tr>
+        <th>OldMFG</th>
+        <th>NewMFG</th>
+        <th>Delete</th>
+        <th>Save</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="mfgmap in mfgmaps">
+        <td ng-bind="mfgmap.oldmfg"></td>
+        <td>
+            <md-input-container>
+                <input class="nice-input" ng-model="mfgmap.newmfg" type="text" aria-label="newmfg">
+            </md-input-container>
+        </td>
+        <td class="center-table-delete">
+            <md-button class="md-raised" ng-click="deleteRec(mfgmap)">Delete</md-button>
+        </td>
+        <td class="center-table-update">
+            <md-button class="md-raised" ng-click="updateRec(mfgmap)">Save</md-button>
+        </td>
+    </tr>
+    </tbody>
+</table>

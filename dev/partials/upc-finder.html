@@ -1,0 +1,70 @@
+<h4 class="orange-color upc-finder-title">UPC Finder</h4>
+<div layout="row" layout-padding layout-align="space-between start">
+    <div layout-padding flex="50">
+        <div class="form-group">
+            <select class="form-control mfg-select" ng-options="mfgcode for mfgcode in mfgcodes track by mfgcode" ng-model="selectedMFG">
+                <option value="">--CHOOSE MFGCODE--</option>
+            </select>
+            <label for="SKU">SKU</label>
+            <input type="text" class="form-control" placeholder="SKU" ng-model="Sku">
+            <md-button class="md-raised md-primary" ng-click="Search()">Search</md-button>
+            <md-button class="md-raised md-primary" ng-click="Reset()">Reset</md-button>
+        </div>
+        <div class="form-group upc-free" layout="row" layout-align="space-between end" flex="100" ng-if="NoFound">
+            <div class="">
+                <label for="UPC">UPC</label>
+                <input type="text" class="form-control" placeholder="SKU" ng-model="NewUPC" disabled>
+            </div>
+            <div class="">
+                <label for="MFGCODE">MFGCODE</label>
+                <input type="text" class="form-control" placeholder="SKU" ng-model="NewUPCMFG">
+            </div>
+            <div class="">
+                <label for="SKU">SKU</label>
+                <input type="text" class="form-control" placeholder="SKU" ng-model="NewUPCSKU">
+            </div>
+            <md-button class="md-raised md-primary save-upc-btn" ng-click="SaveUPC()">Save</md-button>
+        </div>
+        <div class="alert alert-danger upc-alert" role="alert" ng-if="UPCExists">UPC record exists</div>
+        <div class="alert alert-danger upc-alert" role="alert" ng-if="UPCFault">UPC not saved</div>
+        <div class="alert alert-success upc-alert" role="alert" ng-if="UPCSaved">UPC saved</div>
+    </div>
+    <div layout-padding flex="50" class="upc-table" ng-if="items.length>0">
+        <table class="table table-striped table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>UPC</th>
+                    <th>MFGCODE</th>
+                    <th>SKU</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in items">
+                    <td ng-bind="item.UPC"></td>
+                    <td ng-bind="item.MFGCODE"></td>
+                    <td ng-bind="item.Sku"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div layout="row" layout-align="start center" class="paginator">
+            <md-button md-no-ink class="md-icon-button md-primary" ng-show="(paginator.currentpage>'1')?true:false" ng-click="paginator.GetPage(1)">
+                1
+            </md-button>
+            <md-button md-no-ink class="md-icon-button md-primary" ng-show="(paginator.currentpage>'1')?true:false" ng-click="paginator.GetPage(paginator.previouspage)" aria-label="previous_page">
+                <md-icon md-svg-icon="/assets/img/icons/ic_chevron_left_48px.svg"></md-icon>
+            </md-button>
+            <span class="dots" ng-show="(paginator.currentpage>'1')?true:false">...</span>
+            <span class="md-primary dots">{{paginator.currentpage}}</span>
+            <span class="dots" ng-show="(paginator.currentpage<paginator.lastpage)?true:false">...</span>
+            <md-button md-no-ink class="md-icon-button md-primary" aria-lable="next" ng-click="paginator.GetPage(paginator.nextpage)" ng-show="(paginator.currentpage<paginator.lastpage)?true:false" aria-label="next_page">
+                <md-icon md-svg-icon="/assets/img/icons/ic_chevron_right_48px.svg"></md-icon>
+            </md-button>
+            <md-button md-no-ink class="md-icon-button md-primary" aria-lable="last" ng-click="paginator.GetPage(paginator.lastpage)" ng-show="(paginator.currentpage<paginator.lastpage)?true:false">
+                {{paginator.lastpage}}
+            </md-button>
+        </div>
+    </div>
+    <div layout-padding flex="50" class="upc-table" ng-if="NoFound">
+        <div class="alert alert-danger" role="alert">Found no reference</div>
+    </div>
+</div>

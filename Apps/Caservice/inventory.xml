@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://api.channeladvisor.com/webservices/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SOAP-ENV:Header>
+        <ns1:APICredentials>
+            <ns1:DeveloperKey>********************************</ns1:DeveloperKey>
+            <ns1:Password>******************</ns1:Password>
+        </ns1:APICredentials>
+    </SOAP-ENV:Header>
+    <SOAP-ENV:Body>
+        <ns1:GetFilteredInventoryItemList>
+            <ns1:accountID>**********************</ns1:accountID>
+            <ns1:itemCriteria>
+                <ns1:DateRangeStartGMT xsi:nil="true" />
+                <ns1:DateRangeEndGMT xsi:nil="true" />
+                <ns1:QuantityCheckValue xsi:nil="true" />
+                <ns1:PageNumber>2</ns1:PageNumber>
+                <ns1:PageSize>100</ns1:PageSize>
+            </ns1:itemCriteria>
+            <ns1:detailLevel>
+                <ns1:IncludeQuantityInfo>true</ns1:IncludeQuantityInfo>
+                <ns1:IncludePriceInfo>true</ns1:IncludePriceInfo>
+                <ns1:IncludeClassificationInfo>true</ns1:IncludeClassificationInfo>
+            </ns1:detailLevel>
+            <ns1:sortField>Sku</ns1:sortField>
+            <ns1:sortDirection>Ascending</ns1:sortDirection>
+        </ns1:GetFilteredInventoryItemList>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

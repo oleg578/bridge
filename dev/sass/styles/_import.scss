@@ -1,0 +1,68 @@
+.input-file-label {
+    background-color: $color-indigo-500;
+    color: #efefef;
+    padding: 6px;
+    border-radius: 2px;
+    margin: 5px;
+    height: 32px;
+    display: inline-block;
+    box-shadow: 3px 4px 5px #c7c7c7;
+}
+
+span.input-file-choose {
+    margin: 5px 1rem;
+    color: $color-indigo-500;
+    position: relative;
+    left: -86px;
+    min-width: 300px;
+    display: inline-block;
+    border-bottom: 1px solid $color-indigo-500;
+}
+
+input#filechoose {
+    position: relative;
+    left: -87px;
+    top: -1px;
+    opacity: 0;
+    width: 82px;
+    overflow: hidden;
+    vertical-align: middle;
+    font-size: 22px;
+}
+
+.progress-panel {
+    @include flex-wrap(wrap);
+}
+
+.progress-bar-meter {
+    background: $color-gray-300;
+    @include flex(0 0 300px);
+    margin: 1px 0;
+    padding: 4px;
+}
+
+.progress-bar-meter span {
+    @include display(flex);
+    height: 5px;
+    background: $color-green-400;
+    width: 0;
+}
+
+.process-info-panel>p {
+    padding: 0;
+    margin: 0;
+}
+
+.info-box {
+    width: 100%;
+    margin-top: 20px;
+    font-family: 'Roboto Condensed', Roboto, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.file-process-progress>span {
+    display: flex;
+    height: 5px;
+    background-color: blue;
+    width: 50%;
+}

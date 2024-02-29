@@ -1,0 +1,54 @@
+.md-toolbar-tools {
+    height: 48px !important;
+}
+md-toolbar {
+    min-height: 48px;
+    font-size : 1.1rem;
+}
+a.main-url {
+    color          : $color-gray-50;
+    text-decoration: none;
+}
+a.main-url:hover {
+    color          : $color-gray-50;
+    text-decoration: none;
+}
+a.main-url:visited {
+    color          : $color-gray-50;
+    text-decoration: none;
+}
+.user-panel {
+    z-index         : 10000;
+    position        : fixed;
+    width           : 150px;
+    right           : 8px;
+    top             : 56px;
+    background-color: #fff;
+}
+.unvisible {
+    display: none !important;
+}
+h5.md-toolbar-tools {
+    font-size: 1.2rem;
+}
+a.menu-subitem {
+    padding    : 0 8px;
+    line-height: 1.8;
+}
+h5.md-toolbar-tools:hover {
+    cursor: pointer;
+}
+md-item {
+    display: block;
+    padding: 4px;
+}
+mb-toolbar>a {
+    color          : $color-gray-50;
+    text-decoration: none;
+}
+mb-toolbar>a:hover {
+    color: $color-gray-50;
+}
+mb-toolbar>a:visited {
+    color: $color-gray-50;
+}

@@ -1,0 +1,86 @@
+@mixin flex($param) {
+    -webkit-flex: $param;
+    -ms-flex: $param;
+    flex: $param;
+}
+
+@mixin flex-direction($param) {
+    -webkit-flex-direction: $param;
+    -ms-flex-direction: $param;
+    flex-direction: $param;
+}
+
+@mixin align-content($param){
+    -webkit-align-content: $param;
+    align-content: $param;
+}
+
+@mixin align-items($param){
+    -webkit-align-items: $param;
+    @if $param == flex-start {
+        -ms-flex-align: start;
+    } @else if $param == flex-end {
+        -ms-flex-align: end;
+    } @else {
+        -ms-flex-align: $param;
+    }
+    align-items: $param;
+}
+
+@mixin align-self($param){
+    -webkit-align-self: $param;
+    align-self: $param;
+}
+
+@mixin flex-basis($param){
+    -webkit-flex-basis: $param;
+    flex-basis: $param;
+}
+
+@mixin flex-flow($param){
+    -webkit-flex-flow: $param;
+    flex-flow: $param;
+}
+
+@mixin flex-grow($param){
+    -webkit-flex-grow: $param;
+    flex-grow: $param;
+}
+
+@mixin flex-shrink($param){
+    -webkit-flex-shrink: $param;
+    flex-shrink: $param;
+}
+
+@mixin flex-wrap($param){
+    -webkit-flex-wrap: $param;
+    -ms-flex-wrap: $param;
+    flex-wrap: $param;
+}
+
+@mixin order($param){
+    -webkit-order: $param;
+    -ms-flex-order: $param;
+    order: $param;
+}
+
+@mixin justify-content($param){
+    -webkit-justify-content: $param;
+    @if $param == flex-start {
+        -ms-flex-pack: start;
+    } @else if $param == flex-end {
+        -ms-flex-pack: end;
+    } @else {
+        -ms-flex-pack: $param;
+    }
+    justify-content: $param;
+}
+
+@mixin display($param){
+
+    @if $param == flex {
+        display: flex;
+        display: -webkit-flex;
+        display: -ms-flexbox;       
+    } @else {display:$param;}
+}

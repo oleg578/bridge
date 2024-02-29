@@ -1,0 +1,55 @@
++----------------------------------+---------------+------+-----+-------------------+-----------------------------+
+| Field                            | Type          | Null | Key | Default           | Extra                       |
++----------------------------------+---------------+------+-----+-------------------+-----------------------------+
+| id                               | int(11)       | NO   | PRI | NULL              | auto_increment              |
+| sku                              | varchar(50)   | NO   | MUL | NULL              |                             |
+| title                            | varchar(255)  | YES  |     |                   |                             |
+| subtitle                         | varchar(100)  | YES  |     |                   |                             |
+| shortdescription                 | varchar(1000) | YES  |     |                   |                             |
+| description                      | varchar(2000) | YES  |     |                   |                             |
+| weight                           | double(11,4)  | YES  |     | 0.0000            |                             |
+| suppliercode                     | varchar(50)   | YES  |     |                   |                             |
+| warehouselocation                | varchar(80)   | YES  |     |                   |                             |
+| flagstyle                        | varchar(80)   | YES  |     |                   |                             |
+| taxproductcode                   | varchar(25)   | YES  |     |                   |                             |
+| flagdescription                  | varchar(80)   | YES  |     |                   |                             |
+| isblocked                        | tinyint(1)    | YES  |     | NULL              |                             |
+| blockcomment                     | varchar(80)   | YES  |     |                   |                             |
+| asin                             | varchar(14)   | YES  |     |                   |                             |
+| isbn                             | varchar(20)   | YES  |     |                   |                             |
+| upc                              | varchar(20)   | YES  |     |                   |                             |
+| ean                              | varchar(20)   | YES  |     |                   |                             |
+| mpn                              | varchar(50)   | YES  |     |                   |                             |
+| manufacturer                     | varchar(255)  | YES  |     |                   |                             |
+| brand                            | varchar(150)  | YES  |     |                   |                             |
+| condition                        | varchar(45)   | YES  |     |                   |                             |
+| warranty                         | varchar(255)  | YES  |     |                   |                             |
+| productmargin                    | double(11,4)  | YES  |     | 0.0000            |                             |
+| supplierpo                       | varchar(255)  | YES  |     |                   |                             |
+| harmonizedcode                   | varchar(20)   | YES  |     |                   |                             |
+| height                           | double(11,4)  | YES  |     | 0.0000            |                             |
+| length                           | double(11,4)  | YES  |     | 0.0000            |                             |
+| width                            | double(11,4)  | YES  |     | 0.0000            |                             |
+| classification                   | varchar(35)   | YES  |     |                   |                             |
+| quantity_available               | double(11,4)  | YES  |     | 0.0000            |                             |
+| quantity_openallocated           | double(11,4)  | YES  |     | 0.0000            |                             |
+| quantity_openunallocated         | double(11,4)  | YES  |     | 0.0000            |                             |
+| quantity_pendingcheckout         | double(11,4)  | YES  |     | 0.0000            |                             |
+| quantity_pendingpayment          | double(11,4)  | YES  |     | 0.0000            |                             |
+| quantity_pendingshipment         | double(11,4)  | YES  |     | 0.0000            |                             |
+| quantity_total                   | double(11,4)  | YES  |     | 0.0000            |                             |
+| quantity_openallocatedpooled     | double(11,4)  | YES  |     | 0.0000            |                             |
+| quantity_openunallocatedpooled   | double(11,4)  | YES  |     | 0.0000            |                             |
+| quantity_pendingcheckoutpooled   | double(11,4)  | YES  |     | 0.0000            |                             |
+| quantity_pendingpaymentpooled    | double(11,4)  | YES  |     | 0.0000            |                             |
+| quantity_pendingshipmentpooled   | double(11,4)  | YES  |     | 0.0000            |                             |
+| quantity_totalpooled             | double(11,4)  | YES  |     | 0.0000            |                             |
+| priceinfo_cost                   | double(11,4)  | YES  |     | 0.0000            |                             |
+| priceinfo_retailprice            | double(11,4)  | YES  |     | 0.0000            |                             |
+| priceinfo_startingprice          | double(11,4)  | YES  |     | 0.0000            |                             |
+| priceinfo_reserveprice           | double(11,4)  | YES  |     | 0.0000            |                             |
+| priceinfo_takeitprice            | double(11,4)  | YES  |     | 0.0000            |                             |
+| priceinfo_secondchanceofferprice | double(11,4)  | YES  |     | 0.0000            |                             |
+| priceinfo_storeprice             | double(11,4)  | YES  |     | 0.0000            |                             |
+| created_at                       | timestamp     | YES  |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
++----------------------------------+---------------+------+-----+-------------------+-----------------------------+

@@ -1,0 +1,27 @@
+<h4 class="orange-color">Hooks</h4>
+<md-whiteframe layout="column" layout-align="start start" layout-margin layout-padding class="attr-panel">
+    <md-button class="md-raised" ng-click="StartApply()" ng-disabled="ApplyProgress">Apply</md-button>
+</md-whiteframe>
+<div class="panel panel-primary hook-apply-progress-panel">
+  <div class="panel-heading">
+    <h3 class="panel-title">Apply progress</h3>
+  </div>
+</div>
+<table class="table table-striped table-bordered table-condensed" layout-padding flex="70" ng-if="hooks.length">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Procedure Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="hook in hooks">
+            <td ng-bind="::hook.Name"></td>
+            <td ng-bind="::hook.ProcName"></td>
+            <td ng-bind="::hook.Type"></td>
+            <td ng-bind="::hook.Description"></td>
+        </tr>
+    </tbody>
+</table>

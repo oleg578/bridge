@@ -1,0 +1,21 @@
+html {
+    font-family: $font-stack;
+    font-size  : 14px;
+}
+a {
+    color          : $color-blue-500;
+    cursor         : inherit;
+    text-decoration: none;
+}
+a:focus {
+    text-decoration: underline;
+    outline: 0;
+}
+a:visited {
+    color: $color-blue-900;
+}
+a:hover {
+    text-decoration: underline;
+    color          : $color-blue-200;
+    cursor         : pointer;
+}

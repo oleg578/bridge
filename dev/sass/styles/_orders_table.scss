@@ -1,0 +1,207 @@
+.order-table {
+    font-size: 12px;
+}
+.order-table-head {
+    padding-bottom: 0;
+}
+.order-table-body {
+    padding-top: 0;
+}
+.order-table-head > div {
+    box-sizing: border-box;
+    border-top: 1px solid $color-gray-300;
+    border-bottom: 1px solid $color-gray-300;
+    border-left: 1px solid $color-gray-300;
+    padding: 0.5rem;
+    font-weight: 800;
+    height: 4.2rem;
+    text-align: center;
+    overflow: hidden;
+}
+.order-table-body-row {
+    background-color: $color-gray-100;
+}
+.order-table-body-row > div {
+    box-sizing: border-box;
+    overflow: hidden;
+    border-top: 0px solid $color-gray-300;
+    border-bottom: 1px solid $color-gray-300;
+    border-left: 1px solid $color-gray-300;
+    height: 2.6rem;
+    text-align: left;
+    line-height: 3;
+    padding-left: 0.5rem;
+}
+.suborder-table-body-row > div {
+    box-sizing: border-box;
+    overflow: hidden;
+    min-height: 2.6rem;
+    text-align: left;
+    line-height: initial;
+    padding: 0.5rem;
+}
+.order-table-head > div:last-child {
+    border-right: 1px solid $color-gray-300;
+}
+.order-table-head > div:nth-child(1) {
+    @include flex(0 0 2%);
+}
+.order-table-head > div:nth-child(2) {
+    @include flex(0 0 7%);
+}
+.order-table-head > div:nth-child(3) {
+    @include flex(0 0 10%);
+}
+.order-table-head > div:nth-child(4) {
+    @include flex(0 0 12%);
+}
+.order-table-head > div:nth-child(5) {
+    @include flex(0 0 10%);
+}
+.order-table-head > div:nth-child(6) {
+    @include flex(0 0 12%);
+}
+.order-table-head > div:nth-child(7) {
+    @include flex(0 0 21%);
+}
+.order-table-head > div:nth-child(8) {
+    @include flex(0 0 7%);
+}
+.order-table-head > div:nth-child(9) {
+    @include flex(0 0 7%);
+}
+.order-table-head > div:nth-child(10) {
+    @include flex(0 0 4%);
+}
+.order-table-head > div:nth-child(11) {
+    @include flex(0 0 3%);
+}
+.order-table-head > div:nth-child(12) {
+    @include flex(0 0 5%);
+}
+
+.order-table-body-row > div:nth-child(1) {
+    @include flex(0 0 2%);
+    text-align: center;
+    padding: 0;
+}
+.order-table-body-row > div:nth-child(2) {
+    @include flex(0 0 7%);
+}
+.order-table-body-row > div:nth-child(3) {
+    @include flex(0 0 10%);
+}
+.order-table-body-row > div:nth-child(4) {
+    @include flex(0 0 12%);
+}
+.order-table-body-row > div:nth-child(5) {
+    @include flex(0 0 10%);
+}
+.order-table-body-row > div:nth-child(6) {
+    @include flex(0 0 12%);
+}
+.order-table-body-row > div:nth-child(7) {
+    @include flex(0 0 21%);
+}
+.order-table-body-row > div:nth-child(8) {
+    @include flex(0 0 7%);
+}
+.order-table-body-row > div:nth-child(9) {
+    @include flex(0 0 7%);
+}
+.order-table-body-row > div:nth-child(10) {
+    @include flex(0 0 4%);
+    color: $color-blue-900;
+    text-align: center;
+}
+.order-table-body-row > div:nth-child(11) {
+    @include flex(0 0 3%);
+}
+.order-table-body-row > div:nth-child(12) {
+    @include flex(0 0 5%);
+    font-weight: 800;
+}
+.order-table-body-row > div:last-child {
+    border-right: 1px solid $color-gray-300;
+}
+
+.suborder-table-body-row > div:nth-child(1) {
+    @include flex(0 0 2%);
+}
+.suborder-table-body-row > div:nth-child(2) {
+    @include flex(0 0 7%);
+}
+.suborder-table-body-row > div:nth-child(3) {
+    @include flex(0 0 10%);
+}
+.suborder-table-body-row > div:nth-child(4) {
+    @include flex(0 0 12%);
+}
+.suborder-table-body-row > div:nth-child(5) {
+    @include flex(0 0 10%);
+}
+.suborder-table-body-row > div:nth-child(6) {
+    @include flex(0 0 12%);
+}
+.suborder-table-body-row > div:nth-child(7) {
+    @include flex(0 0 21%);
+    overflow: initial;
+    line-height: initial;
+}
+.suborder-table-body-row > div:nth-child(8) {
+    @include flex(0 0 7%);
+}
+.suborder-table-body-row > div:nth-child(9) {
+    @include flex(0 0 7%);
+}
+.suborder-table-body-row > div:nth-child(10) {
+    @include flex(0 0 4%);
+}
+.suborder-table-body-row > div:nth-child(11) {
+    @include flex(0 0 3%);
+}
+.suborder-table-body-row > div:nth-child(12) {
+    @include flex(0 0 5%);
+}
+.suborder-table-body-row > div:last-child {
+    border-right: 1px solid $color-gray-300;
+}
+.suborder-table-body-row > div:first-child {
+    border-left: 1px solid $color-gray-300;
+}
+.order-status {
+    width: 50px;
+}
+[data-color="norefunds"] {
+    color: $color-gray-500;
+}
+[data-color="orderlevelrefunds"] {
+    color: $color-orange-800;
+}
+[data-color="canceled"] {
+    color: $color-red-800;
+}
+[data-color="shipped"] {
+    color: $color-green-500;
+}
+[data-color="unshipped"] {
+    color: $color-orange-800;
+}
+[data-color="notvisited"] {
+    color: $color-orange-800;
+}
+[data-color="disabled"] {
+    color: $color-red-800;
+}
+[data-color="completed"] {
+    color: $color-green-500;
+}
+[data-color="deposited"] {
+    color: $color-orange-800;
+}
+[data-color="notyetsubmitted"] {
+    color: $color-red-500;
+}
+[data-color="cleared"] {
+    color: $color-green-500;
+}

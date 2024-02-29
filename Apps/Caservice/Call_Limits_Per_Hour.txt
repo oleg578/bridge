@@ -1,0 +1,31 @@
+Call Limits Per Hour
+Method                                                      Allowed Calls per Hour
+AdminService.GetAuthorizationList                           100
+
+AdminService.RequestAccess                                  100
+
+InventoryService.AssignLabelListToInventoryItemList         10,000
+
+InventoryService.DoesSkuExist                               25,000
+
+InventoryService.GetFilteredInventoryItemList               5,000
+
+InventoryService.GetFilteredSkuList                         5,000
+
+InventoryService.GetInventoryItemQuantityInfo               10,000
+
+InventoryService.SyncInventoryItem                          250,000
+
+InventoryService.SyncInventoryItemList                      10,000
+
+InventoryService.UpdateInventoryItemQuantityAndPrice        500,000
+
+InventoryService.UpdateInventoryItemQuantityAndPriceList    20,000
+
+ListingService.WithdrawListings                             2,500
+
+OrderService.GetOrderList                                   1,000
+
+
+
+P.S. CA Service allowed only 10 parallel connections from 2016 year

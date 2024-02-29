@@ -1,0 +1,12 @@
+<div class="search-panel" layout-padding layout="row" layout-align="space-around stretch">
+    <md-input-container class="sku-search-input">
+        <label>SKU partial</label>
+        <input ng-model="criteria.sku">
+    </md-input-container>
+    <md-datepicker ng-model="criteria.createdatefrom" md-placeholder="Create From:"></md-datepicker>
+    <md-datepicker ng-model="criteria.createdateto" md-placeholder="Create To:"></md-datepicker>
+    <md-datepicker ng-model="criteria.updatedatefrom" md-placeholder="Updated From:"></md-datepicker>
+    <md-datepicker ng-model="criteria.updatedateto" md-placeholder="Updated To:"></md-datepicker>
+    <md-button class="md-raised md-primary" ng-click="SetCriteria()">Search</md-button>
+    <md-button class="md-raised md-warn" ng-click="ClearCriteria()">Clear</md-button>
+</div>

@@ -1,0 +1,13 @@
+bower_components/
+.idea/
+node_modules/
+test/
+doc/
+Apps/reports/*
+Apps/log/*
+Apps/var/log/*
+Apps/pushdata/*.TXT
+Apps/pushdata/*.txt
+Apps/bundledata/*
+Apps/Var/*
+data/

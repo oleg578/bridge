@@ -1,0 +1,68 @@
+drop procedure if exists c_cost_hook;
+DELIMITER ;;
+CREATE PROCEDURE c_cost_hook()
+BEGIN
+DECLARE search_index INT;
+DECLARE ItemSku varchar(50);
+DECLARE ItemAvgCost double(11,2);
+DECLARE kit_count int;
+DECLARE child_pd varchar(50);
+DECLARE child_pf varchar(50);
+# part I -- create AvgCost for single products
+# build index
+select count(`product`.`Sku`) INTO search_index from `product` where `product`.`Sku` not like '%workaround%' and `product`.`Sku` not in (select `bundle`.`ParentSku` from `bundle`);
+SET search_index = search_index - 1;
+WHILE search_index >= 0 DO
+
+select `product`.`Sku` into ItemSku from `product` where `product`.`Sku` not like '%workaround%' and `product`.`Sku` not in (select `bundle`.`ParentSku` from `bundle`) limit 1 offset search_index;
+
+select round(if(`PartsData`.`AvgCost`>0,`PartsData`.`AvgCost`,if(`inventroy`.`pricefile`.`mfgcost`>0,`inventroy`.`pricefile`.`mfgcost`,0)),2)  into ItemAvgCost from `PartsData` inner join `inventroy`.`pricefile` on(`PartsData`.`PartNo`=`inventroy`.`pricefile`.`sku` and `inventroy`.`pricefile`.`mfgcode`=`PartsData`.`MfgCode`) where `PartsData`.`PartNo` =  SUBSTRING_INDEX(ItemSku,'_',-1) and `PartsData`.`MfgCode`=SUBSTRING_INDEX(ItemSku,'_',1) and `PartsData`.`LocationId`=2;
+
+IF ItemAvgCost IS NULL THEN SET ItemAvgCost=0.00;
+END IF;
+SET ItemAvgCost=ROUND(ItemAvgCost,2);
+
+INSERT INTO `attribute` (`id`,`Sku`,`Classification`,`Name`,`Value`) values(md5(concat(ItemSku,'C_COST')),ItemSku,'','C_COST', ItemAvgCost) ON DUPLICATE KEY UPDATE `Value`=ItemAvgCost;
+
+SET search_index = search_index - 1;
+END WHILE;
+
+# part II -- create AvgCost for bundle products
+# build index
+SET search_index = 0;
+select count(`product`.`Sku`) INTO search_index from `product` where `product`.`Sku` not like '%workaround%' and `product`.`Sku` in (select `bundle`.`ParentSku` from `bundle`);
+SET search_index = search_index - 1;
+
+WHILE search_index >= 0 DO
+
+    select `product`.`Sku` into ItemSku from `product` where `product`.`Sku` not like '%workaround%' and `product`.`Sku` in (select `bundle`.`ParentSku` from `bundle`) limit 1 offset search_index;
+    `validate_kit`:
+        BEGIN
+            select count(ParentSku) into kit_count from bundle where ParentSku=ItemSku;
+            SET kit_count = kit_count - 1;
+            WHILE kit_count >= 0 DO
+                select PartNo, sku_custom into child_pd, child_pf from bundle left join PartsData on(SUBSTRING_INDEX(`bundle`.`ChildSku`,'_',-1)=PartsData.PartNo and LocationId=2) left join inventroy.pricefile on(pricefile.sku_custom=bundle.ChildSku)  where ParentSku=ItemSku limit 1 offset kit_count;
+                IF child_pd is null and child_pf is null THEN SET ItemAvgCost=0.00;LEAVE `validate_kit`;
+                END IF;
+            SET kit_count = kit_count - 1;
+            END WHILE;
+
+            select
+            round(
+                sum(
+                    `bundle`.`Quantity`*if(
+                        `PartsData`.`AvgCost`>0,`PartsData`.`AvgCost`,ifnull(
+                            `inventroy`.`pricefile`.`mfgcost`,0
+                        )
+                    )),2) into ItemAvgCost from `bundle` left join `PartsData`          on(SUBSTRING_INDEX(`bundle`.`ChildSku`,'_',-1)=`PartsData`.`PartNo` and `PartsData`.`LocationId`=2 and          `PartsData`.`MfgCode`=SUBSTRING_INDEX(`bundle`.`ChildSku`,'_',1)) left join `inventroy`.`pricefile`         on(`inventroy`.`pricefile`.`sku_custom`=`bundle`.`ChildSku` and             `inventroy`.`pricefile`.`mfgcode`=SUBSTRING_INDEX(`bundle`.`ChildSku`,'_',1)) where `ParentSku`=ItemSku         group by    `bundle`.`ParentSku`;
+
+                IF ItemAvgCost IS NULL THEN SET ItemAvgCost=0.00;
+            END IF;
+        END;
+    INSERT INTO `attribute` (`id`,`Sku`,`Classification`,`Name`,`Value`) values(md5(concat(ItemSku,'C_COST')),ItemSku,'','C_COST', ItemAvgCost) ON DUPLICATE KEY UPDATE `Value`=ItemAvgCost;
+
+    SET search_index = search_index - 1;
+END WHILE;
+
+END;;
+DELIMITER ;

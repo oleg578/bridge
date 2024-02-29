@@ -1,0 +1,45 @@
+{
+    "phalcon": {
+        "secretkey": "secret_key",
+        "developMode": true,
+        "baseuri": "/",
+        "domain": "bridge.dev.local"
+    },
+    "modules": {
+        "frontend": {
+            "className": "Apps\\Frontend\\FrontendModule"
+        },
+        "backend": {
+            "className": "Apps\\Backend\\BackendModule"
+        },
+        "api": {
+            "className": "Apps\\Api\\ApiModule"
+        }
+    },
+    "maindb": {
+        "host": "localhost",
+        "dbname": "bridge",
+        "username": "username",
+        "password": "password",
+        "options": {
+            "PDO::ATTR_CASE": "PDO::CASE_LOWER"
+        }
+    },
+    "dbuser": {
+        "host": "localhost",
+        "dbname": "bridge",
+        "username": "username",
+        "password": "password",
+        "options": {
+            "PDO::ATTR_CASE": "PDO::CASE_LOWER"
+        }
+    },
+    "cadata_dir": "/projects/bridge/Apps/data/",
+    "bundledata_dir": "/projects/bridge/Apps/bundledata/",
+    "orderdata_dir": "/projects/bridge/Apps/orderdata/",
+    "util_dir": "/projects/bridge/Apps/util/",
+    "upload_dir": "/projects/bridge/Apps/outdocs/",
+    "noimage_path": "/projects/bridge/public/assets/img/",
+    "hooks_dir": "/projects/bridge/Apps/util/hooks/",
+    "csv_dir": "/projects/bridge/public/csv/"
+}

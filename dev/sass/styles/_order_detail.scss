@@ -1,0 +1,41 @@
+.order-detail {
+    width: 100%;
+}
+.order-detail-list {
+    width    : 50%;
+    font-size: 12px;
+    @media all and (max-width: 768px) {
+        width    : 50%;
+        font-size: 12px;
+    }
+}
+.order-detail-list-group > p {
+    padding: 0;
+    margin : 0;
+}
+.order-detail-list-group > p > span:first-child {
+    display: inline-block;
+    width  : 200px;
+    @include flex(0 0 200px);
+}
+.order-detail-list-group > p > span.status-date {
+    padding-left: 0.5rem;
+}
+.order-instructions {
+    display  : inline-block;
+    max-width: 400px;
+    word-wrap: break-word;
+    overflow : hidden;
+}
+.order-detail-items-table {
+    max-width: 960px;
+    font-size: 12px;
+}
+.order-detail-items-table-total {
+    padding: 0 16px 0 0;
+    margin : 0;
+    width  : 100%;
+}
+.order-detail-items-table-total > p > span:first-child {
+    margin-right: 65px;
+}

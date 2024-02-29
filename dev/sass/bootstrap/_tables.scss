@@ -1,0 +1,66 @@
+$width: 100%;
+/* flex table */
+.t-table {
+    font-size: 12px;
+    margin   : 20px 0;
+}
+.t-header>span {
+    min-height     : 24px;
+    display        : flex;
+    align-items    : center;
+    flex           : 1 1;
+    justify-content: flex-start;
+    text-indent    : 5px;
+}
+.t-header>span:hover {
+    cursor: pointer;
+}
+.t-header>span:focus {
+    outline: 0;
+}
+.t-row,
+.t-header {
+    border-bottom: 1px solid #444;
+}
+.t-header {
+    font-weight: bold;
+}
+.bottom-align {
+    @include align-items(flex-end);
+}
+.t-row>span {
+    overflow   : hidden;
+    white-space: nowrap;
+    height     : auto;
+    text-indent: 5px;
+    margin-top: 0.5rem;
+}
+.row-flex.t-header,
+.row-flex.t-row {
+    justify-content: space-between;
+}
+.t-header {
+    overflow-y      : scroll;
+    background-color: $color-gray-200;
+}
+.t-body {
+    max-height: 40vh;
+    overflow-y: scroll;
+    overflow-x: auto;
+}
+/* user activity table grid */
+$activity-atom: $width/2;
+.activity-table .t-header>span {
+    height: 48px;
+}
+.activity-table .t-body {
+    max-height: 62vh;
+}
+.activity-table .t-header>span:nth-child(1),
+.activity-table .t-row>span:nth-child(1) {
+    flex: 0 0 $activity-atom*1.5;
+}
+.activity-table .t-header>span:nth-child(2),
+.activity-table .t-row>span:nth-child(2) {
+    flex: 0 0 $activity-atom*0.5;
+}

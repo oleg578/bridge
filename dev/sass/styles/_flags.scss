@@ -1,0 +1,55 @@
+.baseflag {
+    display: block;
+    height: 16px;
+    width: 16px;
+    margin: 2px 0;
+}
+.noflag {
+    @extend .baseflag;
+    display: none;
+}
+.blueflag {
+    @extend .baseflag;
+    display: block;
+    background: url(/assets/img/flags.png) 0 0;
+}
+.itemcopied {
+    @extend .baseflag;
+    display: block;
+    background: url(/assets/img/flags.png) 0 -16px;
+}
+.yellowflag {
+    @extend .baseflag;
+    display: block;
+    background: url(/assets/img/flags.png) 0 -32px;
+}
+.exclamationpoint {
+    @extend .baseflag;
+    display: block;
+    background: url(/assets/img/flags.png) 0 -48px;
+}
+.greenflag {
+    @extend .baseflag;
+    display: block;
+    background: url(/assets/img/flags.png) 0 -64px;
+}
+.notavailable {
+    @extend .baseflag;
+    display: block;
+    background: url(/assets/img/flags.png) 0 -80px;
+}
+.price {
+    @extend .baseflag;
+    display: block;
+    background: url(/assets/img/flags.png) 0 -96px;
+}
+.questionmark {
+    @extend .baseflag;
+    display: block;
+    background: url(/assets/img/flags.png) 0 -112px;
+}
+.redflag {
+    @extend .baseflag;
+    display: block;
+    background: url(/assets/img/flags.png) 0 -128px;
+}
